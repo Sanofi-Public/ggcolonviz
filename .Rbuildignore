@@ -1,0 +1,11 @@
+^\.Rproj\.user$
+^LICENSE\.md$
+^README\.Rmd$
+^README\.html$
+^\.github$
+^\.vscode$
+^docs$
+^_pkgdown\.yml$
+^cran-comments\.md$
+^ggcolonviz\.Rproj$
+^NOTICE$

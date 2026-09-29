@@ -1,0 +1,65 @@
+---
+title: "Heatmaps"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Heatmaps}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ggcolonviz)
+library(ggplot2)
+```
+
+## Heatmaps
+
+You can create heatmaps to visualize the severity of inflammation across different parts of the colon.
+
+```{r heatmap}
+# Assign a continuous score based on anatomy
+# Example: Gradient that follows the 'y' axis for vertical parts
+heatmap_points <- colon_heatmap_grid() |>
+  dplyr::mutate(
+    severity = dplyr::case_when(
+      part == "Transverse" ~ (x + 3.5) / 4, # Heat flows left-to-right
+      TRUE ~ (y + 1) / 6 # Heat flows bottom-to-top
+    )
+  )
+
+# Sample lesion data (Coordinates must match your blueprint's dx/dy space)
+lesions <- data.frame(
+  x = c(-3.0, 0.0, -0.2), # Specific anatomical locations
+  y = c(2.0, 4.3, 0.5),
+  type = c("Polyp", "Ulcer", "Polyp"),
+  size = c(4, 2, 6)
+)
+
+ggplot() +
+  # Layer 1: Internal Heatmap
+  geom_raster(data = heatmap_points, aes(x = x, y = y, fill = severity)) +
+
+  # Layer 2: Discrete Lesions
+  geom_point(
+    data = lesions,
+    aes(x = x, y = y, shape = type, size = size),
+    color = "cyan",
+    fill = "black",
+    stroke = 1.2
+  ) +
+
+  # Styling
+  scale_fill_viridis_c(option = "magma", name = "Tissue Heat") +
+  scale_size_continuous(range = c(2, 6), guide = "none") +
+  coord_fixed(expand = FALSE) +
+  theme_void() +
+  labs(title = "Subject 001: Integrated Colonic Heatmap & Lesion Map")
+```
+

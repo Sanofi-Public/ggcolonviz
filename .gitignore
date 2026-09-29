@@ -1,0 +1,7 @@
+.Rproj.user
+*.Rproj
+inst/doc
+.vscode/*
+README.html
+docs
+.DS_Store

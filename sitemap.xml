@@ -1,0 +1,20 @@
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/LICENSE.html</loc></url>
+<url><loc>/articles/Basics.html</loc></url>
+<url><loc>/articles/Heatmaps.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/colon_heatmap_grid.html</loc></url>
+<url><loc>/reference/colon_sf.html</loc></url>
+<url><loc>/reference/geom_colon.html</loc></url>
+<url><loc>/reference/geom_colon_label.html</loc></url>
+<url><loc>/reference/ggcolonviz-package.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/list_colon_variants.html</loc></url>
+<url><loc>/reference/register_colon_variant.html</loc></url>
+</urlset>
+
